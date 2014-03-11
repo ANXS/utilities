@@ -1,0 +1,19 @@
+# file: utilities/tasks/main.yml
+
+- name: Common | Make sure some basic tools are installed
+  apt:
+    pkg: "{{item}}"
+  with_items:
+    - command-not-found
+    - curl
+    - debconf
+    - dmidecode
+    - htop
+    - iftop
+    - iotop
+    - nmap
+    - mosh
+    - pciutils
+    - sysstat
+    - tmux
+    - tshark
