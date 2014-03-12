@@ -1,1 +1,18 @@
 # file: utilities/defaults/main.yml
+
+utilities_base:
+  - command-not-found
+  - curl
+  - debconf
+  - dmidecode
+  - htop
+  - iftop
+  - iotop
+  - nmap
+  - mosh
+  - pciutils
+  - sysstat
+  - tmux
+  - tshark
+
+utilities_extras: []
