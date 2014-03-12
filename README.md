@@ -17,8 +17,10 @@ The basic install includes:
 - tmux
 - tshark
 
+
 #### Requirements & Dependencies
 - Tested on Ansible 1.3 or higher
+
 
 #### Variables
 
@@ -26,9 +28,11 @@ The basic install includes:
 utilities_extras: []            # List of additional utility package names to be installed
 ```
 
+
 #### License
 
 Licensed under the MIT License. See the LICENSE file for details.
+
 
 #### Feedback, bug-reports, requests, ...
 
