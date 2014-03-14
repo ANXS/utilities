@@ -1,0 +1,7 @@
+# file: utilities/vars/Debian.yml
+
+utilities_distribution:
+  - acl
+  - aptictron
+  - debconf
+  - update-notifier-common

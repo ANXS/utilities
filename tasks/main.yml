@@ -1,11 +1,17 @@
 # file: utilities/tasks/main.yml
 
-- name: Utilities | Make sure some basic tools are installed
+- name: Utilities | Make sure some basic utilities are installed
   apt:
     pkg: "{{item}}"
   with_items: utilities_base
 
-- name: Utilities | Make sure the list of addtitional tools are installed
+- name: Utilities | Make sure some distribution specific utilities are installed
+  apt:
+    pkg: "{{item}}"
+  with_items: utilities_distribution
+  when: ansible_os_family == "Debian"
+
+- name: Utilities | Make sure the list of addtitional tools and utilities are installed
   apt:
     pkg: "{{item}}"
   with_items: utilities_extras
