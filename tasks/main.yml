@@ -1,5 +1,8 @@
 # file: utilities/tasks/main.yml
 
+- name: Utilities | Load the distribution specific variables
+  include_vars: "{{ansible_os_family}}.yml"
+
 - name: Utilities | Make sure some basic utilities are installed
   apt:
     pkg: "{{item}}"
