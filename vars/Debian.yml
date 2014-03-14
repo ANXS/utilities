@@ -2,6 +2,6 @@
 
 utilities_distribution:
   - acl
-  - aptictron
+  - apticron
   - debconf
   - update-notifier-common
