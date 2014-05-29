@@ -1,7 +1,7 @@
 # file: utilities/defaults/main.yml
 
 utilities_base:
-  - ack
+  - ack-grep
   - command-not-found
   - curl
   - debconf
