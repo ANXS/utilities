@@ -4,16 +4,28 @@ utilities_base:
   - ack-grep
   - command-not-found
   - curl
+  - dstat
   - debconf
   - dmidecode
+  - ethtool
+  - git
   - htop
   - iftop
   - iotop
+  - iperf
+  - ltrace
   - nmap
   - mosh
+  - mtr
+  - netcat
   - pciutils
+  - pstack
+  - pv
+  - smem
+  - socat
   - sysstat
   - tmux
+  - tree
   - tshark
 
 utilities_extras: []
