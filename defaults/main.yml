@@ -8,7 +8,6 @@ utilities_base:
   - debconf
   - dmidecode
   - ethtool
-  - git
   - htop
   - iftop
   - iotop
