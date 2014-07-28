@@ -26,5 +26,6 @@ utilities_base:
   - tmux
   - tree
   - tshark
+  - whois
 
 utilities_extras: []
