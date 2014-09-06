@@ -2,7 +2,7 @@
 
 galaxy_info:
   author: pjan vandaele
-  company: Ansibles
+  company: ANXS
   description: "Installs a selection of must-have utilities."
   min_ansible_version: 1.4
   license: MIT

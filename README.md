@@ -1,4 +1,4 @@
-## Ansibles - utilities [![Build Status](https://travis-ci.org/Ansibles/utilities.png)](https://travis-ci.org/Ansibles/utilities)
+## ANXS - utilities [![Build Status](https://travis-ci.org/ANXS/utilities.png)](https://travis-ci.org/ANXS/utilities)
 
 Ansible role that installs a selection of useful, must-have utilities. Additional ones can be adding them to the `utilities_extras` list.
 
@@ -56,4 +56,4 @@ Licensed under the MIT License. See the LICENSE file for details.
 
 #### Feedback, bug-reports, requests, ...
 
-Are [welcome](https://github.com/ansibles/utilities/issues)!
+Are [welcome](https://github.com/ANXS/utilities/issues)!
