@@ -49,6 +49,12 @@ utilities_extras: []            # List of additional utility package names to be
 ```
 
 
+#### Testing
+This project comes with a VagrantFile, this is a fast and easy way to test changes to the role, fire it up with `vagrant up`
+
+See [vagrant docs](https://docs.vagrantup.com/v2/) for getting setup with vagrant
+
+
 #### License
 
 Licensed under the MIT License. See the LICENSE file for details.
