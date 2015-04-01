@@ -16,6 +16,8 @@ utilities_base:
   - nmap
   - mosh
   - mtr
+  - multitail
+  - ncdu
   - netcat
   - pciutils
   - pstack
