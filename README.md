@@ -17,7 +17,9 @@ Ansible role that installs a selection of useful, must-have utilities. Additiona
 - **ltrace**: library call tracer
 - **nmap**: Security Scanner For Network Exploration & Hacking
 - **mosh**: mobile shell
+- **multitail**: interactively tail multiple files
 - **mtr**: a network diagnostic tool
+- **ncdu**: interactive console disk usage visualizer
 - **netcat**: reads and writes data across network
 - **pciutils**: collection of programs for inspecting and manipulating configuration of PCI devices
 - **pstack**: attaches to the active processes named by the pids on the command line , and prints out an execution stack trace
