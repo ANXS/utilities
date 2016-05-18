@@ -1,7 +1,9 @@
 # file: utilities/vars/Debian.yml
 
-utilities_distribution:
+utilities_distribution_debian:
   - acl
   - apticron
   - debconf
+
+utilities_distribution_no_jessie:
   - update-notifier-common

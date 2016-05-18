@@ -8,11 +8,18 @@
     pkg: "{{item}}"
   with_items: utilities_base
 
-- name: Utilities | Make sure some distribution specific utilities are installed
+- name: Utilities | Make sure some Debian specific utilities are installed
   apt:
     pkg: "{{item}}"
-  with_items: utilities_distribution
+  with_items: utilities_distribution_debian
   when: ansible_os_family == "Debian"
+
+- name: Utilities | Make sure some Debian specific utilities are installed (not Jessie)
+  apt:
+    pkg: "{{item}}"
+  with_items: utilities_distribution_no_jessie
+  when: ansible_os_family == "Debian" and
+        ansible_distribution_release != "jessie"
 
 - name: Utilities | Make sure the list of addtitional tools and utilities are installed
   apt:
