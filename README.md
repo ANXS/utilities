@@ -41,7 +41,7 @@ Ansible role that installs a selection of useful, must-have utilities. Additiona
 - **update-notifier-common**: no explanation needed...
 
 #### Requirements & Dependencies
-- Tested on Ansible 1.4 or higher
+- Tested on Ansible 2.3 or higher
 
 
 #### Variables
