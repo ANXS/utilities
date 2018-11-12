@@ -1,5 +1,4 @@
-# file: utilities/meta/main.yml
-
+---
 galaxy_info:
   author: pjan vandaele
   company: ANXS
@@ -7,10 +6,10 @@ galaxy_info:
   min_ansible_version: 1.4
   license: MIT
   platforms:
-  - name: Ubuntu
-    versions:
-    - all
+    - name: Ubuntu
+      versions:
+        - all
   categories:
-  - system
+    - system
 
 dependencies: []

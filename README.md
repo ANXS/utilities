@@ -1,4 +1,4 @@
-## ANXS - utilities [![Build Status](https://travis-ci.org/ANXS/utilities.png)](https://travis-ci.org/ANXS/utilities)
+## ANXS - utilities [![Build Status](https://travis-ci.com/ANXS/utilities.png)](https://travis-ci.com/ANXS/utilities)
 
 Ansible role that installs a selection of useful, must-have utilities. Additional ones can be adding them to the `utilities_extras` list.
 
@@ -41,7 +41,7 @@ Ansible role that installs a selection of useful, must-have utilities. Additiona
 - **update-notifier-common**: no explanation needed...
 
 #### Requirements & Dependencies
-- Tested on Ansible 1.4 or higher
+- Tested on Ansible 2.3 or higher
 
 
 #### Variables

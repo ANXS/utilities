@@ -1,5 +1,4 @@
-# file: utilities/defaults/main.yml
-
+---
 utilities_base:
   - ack-grep
   - command-not-found
