@@ -1,4 +1,4 @@
-## ANXS - utilities [![Build Status](https://travis-ci.org/ANXS/utilities.png)](https://travis-ci.org/ANXS/utilities)
+## ANXS - utilities [![Build Status](https://travis-ci.com/ANXS/utilities.png)](https://travis-ci.com/ANXS/utilities)
 
 Ansible role that installs a selection of useful, must-have utilities. Additional ones can be adding them to the `utilities_extras` list.
 
