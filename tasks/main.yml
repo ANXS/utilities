@@ -4,8 +4,7 @@
 
 - name: Utilities | Make sure some basic utilities are installed
   apt:
-    pkg: "{{item}}"
-  with_items: "{{ utilities_base }}"
+    pkg: "{{utilities_base}}"
 
 - name: Utilities | Make sure some Debian specific utilities are installed
   apt:
