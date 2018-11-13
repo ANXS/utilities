@@ -6,3 +6,6 @@ utilities_distribution_debian:
 
 utilities_distribution_no_jessie:
   - update-notifier-common
+
+utilities_distribution_no_arm:
+  - pstack
