@@ -5,6 +5,12 @@
 - name: Utilities | Make sure some basic utilities are installed
   apt:
     pkg: "{{utilities_base}}"
+  when: "ansible_machine.find('arm') == -1"
+
+- name: Utilities | Make sure some basic utilities are installed (ARM)
+  apt:
+    pkg: "{{utilities_base|difference(utilities_distribution_no_arm)}}"
+  when: "ansible_machine.find('arm') != -1"
 
 - name: Utilities | Make sure some Debian specific utilities are installed
   apt:
