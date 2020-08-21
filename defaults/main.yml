@@ -30,3 +30,6 @@ utilities_base:
   - whois
 
 utilities_extras: []
+
+utilities_remove: []
+utilities_purge: true
