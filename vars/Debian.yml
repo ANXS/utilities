@@ -4,8 +4,5 @@ utilities_distribution_debian:
   - apticron
   - debconf
 
-utilities_distribution_no_jessie:
-  - update-notifier-common
-
 utilities_distribution_no_arm:
   - pstack

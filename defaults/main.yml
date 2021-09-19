@@ -3,7 +3,6 @@ utilities_base:
   - ack-grep
   - command-not-found
   - curl
-  - dstat
   - debconf
   - dmidecode
   - ethtool
@@ -21,7 +20,6 @@ utilities_base:
   - pciutils
   - pstack
   - pv
-  - smem
   - socat
   - sysstat
   - tmux
