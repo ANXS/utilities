@@ -36,7 +36,6 @@ Ansible role that installs a selection of useful, must-have utilities. Additiona
 
 ###### Debian/Ubuntu/...:
 - **acl**: much more flexible way of specifying permissions on a file or other object than the standard Unix
-- **apticron**: Get email notifications for updates (needs configuration)
 - **debconf**: utility for performing system-wide configuration tasks on Unix-like operating systems
 - **update-notifier-common**: no explanation needed...
 

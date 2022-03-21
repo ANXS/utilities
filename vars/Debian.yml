@@ -1,7 +1,6 @@
 ---
 utilities_distribution_debian:
   - acl
-  - apticron
   - debconf
 
 utilities_distribution_no_arm:
