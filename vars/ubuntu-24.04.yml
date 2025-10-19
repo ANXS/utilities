@@ -1,0 +1,4 @@
+---
+# Ubuntu 24.04+: netcat package split; prefer netcat-openbsd
+utilities_renames:
+  netcat: netcat-openbsd

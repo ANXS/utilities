@@ -1,23 +1,42 @@
 ---
-- name: Utilities | Load the distribution specific variables
-  include_vars: "{{ansible_os_family}}.yml"
+- name: Utilities | Select vars file for distribution (first found)
+  include_vars: "{{ lookup('ansible.builtin.first_found', params) }}"
+  vars:
+    params:
+      files:
+        - "{{ ansible_distribution | lower }}-{{ ansible_distribution_version }}.yml"
+        - "{{ ansible_distribution | lower }}-{{ (ansible_distribution_version.split('.') | first) }}.yml"
+        - "{{ ansible_distribution | lower }}.yml"
+        - defaults.yml
+      paths:
+        - "{{ role_path }}/vars"
 
-- name: Utilities | Make sure some basic utilities are installed
-  apt:
-    pkg: "{{utilities_base}}"
-  when: ansible_machine.find('arm') == -1
+- name: Utilities | Build final package list (apply excludes and renames)
+  set_fact:
+    utilities_packages: "{{ utilities_packages | default([]) + [ (utilities_renames[item] if utilities_renames is defined and (item in utilities_renames) else item) ] }}"
+  loop: "{{ utilities_base }}"
+  when: utilities_exclude is not defined or item not in utilities_exclude
 
-- name: Utilities | Make sure some basic utilities are installed (ARM)
-  apt:
-    pkg: "{{utilities_base|difference(utilities_distribution_no_arm)}}"
-  when: ansible_machine.find('arm') != -1
+- name: Utilities | Extend with distribution specific packages (Debian family)
+  set_fact:
+    utilities_packages: "{{ utilities_packages + (utilities_distribution_debian | default([])) }}"
+  when: ansible_facts['os_family'] == 'Debian'
 
-- name: Utilities | Make sure some Debian specific utilities are installed
+- name: Utilities | Ensure packages are installed (Debian family)
   apt:
-    pkg: "{{utilities_distribution_debian}}"
-  when: ansible_os_family == "Debian"
+    name: "{{ utilities_packages }}"
+    state: present
+    update_cache: yes
+  when: ansible_facts['os_family'] == 'Debian' and (ansible_machine.find('arm') == -1)
+
+- name: Utilities | Ensure packages are installed (ARM - omit no_arm list)
+  apt:
+    name: "{{ utilities_packages | difference(utilities_distribution_no_arm | default([])) }}"
+    state: present
+    update_cache: yes
+  when: ansible_facts['os_family'] == 'Debian' and (ansible_machine.find('arm') != -1)
 
 - name: Utilities | Make sure the list of addtitional tools and utilities are installed
   apt:
     pkg: "{{utilities_extras}}"
-  when: utilities_extras|length > 0
+  when: utilities_extras | length > 0

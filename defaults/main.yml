@@ -28,3 +28,9 @@ utilities_base:
   - whois
 
 utilities_extras: []
+
+# Distribution-specific overrides/controls (sane defaults)
+utilities_exclude: []
+utilities_renames: {}
+utilities_distribution_no_arm: []
+utilities_distribution_debian: []

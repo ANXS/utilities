@@ -1,9 +1,9 @@
 ---
 galaxy_info:
-  author: pjan vandaele
+  author: ANXS Crew
   company: ANXS
   description: "Installs a selection of must-have utilities."
-  min_ansible_version: 1.4
+  min_ansible_version: 2.13
   license: MIT
   platforms:
     - name: Ubuntu
