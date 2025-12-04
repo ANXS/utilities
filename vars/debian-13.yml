@@ -1,0 +1,7 @@
+---
+utilities_distribution_no_arm:
+  - "pstack"
+  - "ltrace"
+
+utilities_renames:
+  netcat: netcat-openbsd
