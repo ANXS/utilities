@@ -2,6 +2,3 @@
 utilities_distribution_debian:
   - acl
   - debconf
-
-utilities_distribution_no_arm:
-  - pstack

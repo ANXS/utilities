@@ -1,5 +1,5 @@
 ---
-utilities_distribution_no_arm:
+utilities_distribution_exclude:
   - "pstack"
   - "ltrace"
 

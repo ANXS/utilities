@@ -2,4 +2,4 @@
 utilities_exclude: []
 utilities_renames: {}
 utilities_distribution_debian: []
-utilities_distribution_no_arm: []
+utilities_distribution_exclude: []

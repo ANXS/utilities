@@ -5,7 +5,7 @@
     params:
       files:
         - "{{ ansible_distribution | lower }}-{{ ansible_distribution_version }}.yml"
-        - "{{ ansible_distribution | lower }}-{{ (ansible_distribution_version.split('.') | first) }}.yml"
+        - "{{ ansible_distribution | lower }}-{{ ansible_distribution_major_version }}.yml"
         - "{{ ansible_distribution | lower }}.yml"
         - defaults.yml
       paths:
@@ -24,17 +24,10 @@
 
 - name: Utilities | Ensure packages are installed (Debian family)
   apt:
-    name: "{{ utilities_packages }}"
+    name: "{{ utilities_packages | difference(utilities_distribution_exclude | default([])) }}"
     state: present
     update_cache: yes
-  when: ansible_facts['os_family'] == 'Debian' and (ansible_machine.find('arm') == -1)
-
-- name: Utilities | Ensure packages are installed (ARM - omit no_arm list)
-  apt:
-    name: "{{ utilities_packages | difference(utilities_distribution_no_arm | default([])) }}"
-    state: present
-    update_cache: yes
-  when: ansible_facts['os_family'] == 'Debian' and (ansible_machine.find('arm') != -1)
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Utilities | Make sure the list of addtitional tools and utilities are installed
   apt:
