@@ -1,15 +1,26 @@
 ---
 galaxy_info:
-  author: ANXS Crew
-  company: ANXS
-  description: "Installs a selection of must-have utilities."
-  min_ansible_version: 2.13
-  license: MIT
+  namespace: "anxs"
+  role_name: "utilities"
+  author: "ANXS Crew"
+  company: "ANXS"
+  description: "Installs a selection of must-have command-line utilities."
+  license: "MIT"
+  min_ansible_version: "2.13"
   platforms:
     - name: Ubuntu
       versions:
-        - all
-  categories:
+        - focal
+        - jammy
+        - noble
+    - name: Debian
+      versions:
+        - bookworm
+        - trixie
+  galaxy_tags:
     - system
+    - utilities
+    - tools
+    - shell
 
 dependencies: []

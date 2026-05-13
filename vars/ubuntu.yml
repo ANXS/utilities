@@ -1,5 +1,3 @@
 ---
-utilities_exclude: []
-utilities_renames: {}
-utilities_distribution_debian: []
-utilities_distribution_exclude: []
+utilities_renames:
+  netcat: netcat-openbsd

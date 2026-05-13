@@ -1,66 +1,38 @@
-## ANXS - utilities [![Build Status](https://travis-ci.com/ANXS/utilities.png)](https://travis-ci.com/ANXS/utilities)
+## [ANXS](https://github.com/ANXS) - utilities
 
-Ansible role that installs a selection of useful, must-have utilities. Additional ones can be adding them to the `utilities_extras` list.
+[![CI Status](https://img.shields.io/github/actions/workflow/status/anxs/utilities/ci.yml)](https://github.com/ANXS/utilities/actions/workflows/ci.yml)
+[![Maintenance](https://img.shields.io/maintenance/yes/2026.svg)](https://github.com/ANXS/utilities)
+[![Ansible Role](https://img.shields.io/ansible/role/d/anxs/utilities)](https://galaxy.ansible.com/ui/standalone/roles/ANXS/utilities/)
+[![License](https://img.shields.io/github/license/ANXS/utilities)](https://github.com/ANXS/utilities/blob/master/LICENSE)
 
-##### The list of basic utilities includes:
-- **ack**: grep, optimized for programmers
-- **command-not-found**: suggest installation of packages in interactive bash sessions
-- **curl**: command line tool for transferring data with URL syntax
-- **dstat**: tool for generating system resource statistics
-- **dmidecode**: reports information about your system's hardware as described in your system BIOS according to the SMBIOS/DMI standard
-- **ethtool**: display or change ethernet card settings
-- **htop**: interactive process viewer for Linux
-- **iftop**: display bandwidth usage on an interface
-- **iotop**: display io usage on behalf of which process on an interface
-- **iperf**: TCP/UDP bandwidth measurement tool
-- **lsof**: list open files
-- **ltrace**: library call tracer
-- **nmap**: Security Scanner For Network Exploration & Hacking
-- **mosh**: mobile shell
-- **multitail**: interactively tail multiple files
-- **mtr**: a network diagnostic tool
-- **ncdu**: interactive console disk usage visualizer
-- **netcat**: reads and writes data across network
-- **pciutils**: collection of programs for inspecting and manipulating configuration of PCI devices
-- **pstack**: attaches to the active processes named by the pids on the command line , and prints out an execution stack trace
-- **pv**: see the progress of data through a pipeline
-- **smem**: provides numerous reports on memory usage
-- **socat**: establishes two bidirectional byte streams and transfers data between them
-- **strace**: trace system calls and signals
-- **sysstat**: utility comprised of several tools that offers advanced system performance monitoring
-- **tmux**: terminal multiplexer
-- **tree**: recursive directory listing program
-- **tshark**: dump and analyze network traffic
+Ansible role that installs a curated set of command-line utilities (curl, htop, tmux, tree, mtr, nmap, and friends) with per-distribution excludes and package renames.
 
-##### Distribution specific utilities:
+## Requirements & Dependencies
 
-###### Debian/Ubuntu/...:
-- **acl**: much more flexible way of specifying permissions on a file or other object than the standard Unix
-- **debconf**: utility for performing system-wide configuration tasks on Unix-like operating systems
-- **update-notifier-common**: no explanation needed...
+* Ansible 2.13 or higher.
+* Ubuntu 20.04+ or Debian 12+.
 
-#### Requirements & Dependencies
-- Tested on Ansible 2.3 or higher
+## Variables
 
+Some commonly adjusted variables. See [`defaults/main.yml`](https://github.com/ANXS/utilities/blob/master/defaults/main.yml) for the full set.
 
-#### Variables
+* `utilities_base` is the default list of utilities installed on every host.
+* `utilities_extras` (default `[]`) appends custom packages without replacing the base list.
+* `utilities_exclude` drops packages from the base list before install.
+* `utilities_renames` maps a base package name to a per-distro alternative (e.g. `netcat: netcat-openbsd`). Set in `vars/<distro>-<version>.yml`.
+* `utilities_distribution_debian` adds Debian-family-only packages (e.g. `acl`, `debconf`).
+* `utilities_distribution_exclude` removes packages at install time (e.g. `pstack`, `ltrace` on Debian 13 where they're no longer available).
 
-```yaml
-utilities_extras: []            # List of additional utility package names to be installed
-```
+## Testing
 
+Tests use [Molecule](https://github.com/ansible/molecule) with Docker and [Testinfra](https://testinfra.readthedocs.io/). Run the full suite with `make test`, or target a specific platform (e.g. `make test-debian13`).
 
-#### Testing
-This project comes with a VagrantFile, this is a fast and easy way to test changes to the role, fire it up with `vagrant up`
+The test suite verifies base utilities installed everywhere, Debian-family extras (acl, debconf), honored `utilities_extras`, per-distro package renames (`netcat` → `netcat-openbsd` on Ubuntu and Debian 13), and per-distro excludes (`pstack`, `ltrace` absent on Debian 13). Tests run across Ubuntu 20.04/22.04/24.04 and Debian 12/13.
 
-See [vagrant docs](https://docs.vagrantup.com/v2/) for getting setup with vagrant
+## Note on AI Usage
 
+This project has been developed with AI assistance. Contributions making use of AI generated content are welcome, however they _must_ be human reviewed prior to submission as pull requests, or issues. All contributors must be able to fully explain and defend any AI generated code, documentation, issues, or tests they submit. Contributions making use of AI must have this explicitly declared in the pull request or issue. This also applies to utilization of AI for reviewing of pull requests.
 
-#### License
-
-Licensed under the MIT License. See the LICENSE file for details.
-
-
-#### Feedback, bug-reports, requests, ...
+## Feedback, bug-reports, requests, ...
 
 Are [welcome](https://github.com/ANXS/utilities/issues)!

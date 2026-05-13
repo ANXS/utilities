@@ -1,7 +1,0 @@
----
-utilities_distribution_exclude:
-  - "pstack"
-  - "ltrace"
-
-utilities_renames:
-  netcat: netcat-openbsd

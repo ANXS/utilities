@@ -1,0 +1,38 @@
+---
+# Role-internal baseline. Operator-tunable knobs live in defaults/main.yml.
+# Per-distro vars files (vars/<distribution>-<version>.yml,
+# vars/<distribution>.yml) overlay only the keys that differ.
+
+utilities_base:
+  - ack-grep
+  - command-not-found
+  - conntrack
+  - curl
+  - debconf
+  - dmidecode
+  - ethtool
+  - htop
+  - iftop
+  - iotop
+  - iperf
+  - nmap
+  - mosh
+  - mtr
+  - multitail
+  - ncdu
+  - netcat
+  - pciutils
+  - pv
+  - socat
+  - sysstat
+  - tmux
+  - tree
+  - tshark
+  - whois
+
+utilities_distribution_debian:
+  - acl
+  - debconf
+
+utilities_distribution_exclude: []
+utilities_renames: {}

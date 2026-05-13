@@ -1,4 +1,0 @@
----
-utilities_distribution_debian:
-  - acl
-  - debconf

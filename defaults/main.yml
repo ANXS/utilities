@@ -1,36 +1,5 @@
 ---
-utilities_base:
-  - ack-grep
-  - command-not-found
-  - curl
-  - debconf
-  - dmidecode
-  - ethtool
-  - htop
-  - iftop
-  - iotop
-  - iperf
-  - ltrace
-  - nmap
-  - mosh
-  - mtr
-  - multitail
-  - ncdu
-  - netcat
-  - pciutils
-  - pstack
-  - pv
-  - socat
-  - sysstat
-  - tmux
-  - tree
-  - tshark
-  - whois
+# Operator-tunable knobs. Baseline/per-distro variation lives in vars/.
 
 utilities_extras: []
-
-# Distribution-specific overrides/controls (sane defaults)
 utilities_exclude: []
-utilities_renames: {}
-utilities_distribution_exclude: []
-utilities_distribution_debian: []

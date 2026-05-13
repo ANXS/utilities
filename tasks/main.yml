@@ -1,35 +1,42 @@
 ---
-- name: Utilities | Select vars file for distribution (first found)
-  include_vars: "{{ lookup('ansible.builtin.first_found', params) }}"
-  vars:
-    params:
-      files:
+- name: "Utilities | Overlay per-distribution vars if present"
+  ansible.builtin.include_vars: "{{ item }}"
+  with_first_found:
+    - files:
         - "{{ ansible_distribution | lower }}-{{ ansible_distribution_version }}.yml"
         - "{{ ansible_distribution | lower }}-{{ ansible_distribution_major_version }}.yml"
         - "{{ ansible_distribution | lower }}.yml"
-        - defaults.yml
       paths:
         - "{{ role_path }}/vars"
+      skip: true
+  tags: utilities
 
-- name: Utilities | Build final package list (apply excludes and renames)
-  set_fact:
-    utilities_packages: "{{ utilities_packages | default([]) + [ (utilities_renames[item] if utilities_renames is defined and (item in utilities_renames) else item) ] }}"
+- name: "Utilities | Build final package list (apply excludes and renames)"
+  ansible.builtin.set_fact:
+    utilities_packages: >-
+      {{ utilities_packages | default([]) +
+         [ (utilities_renames[item] if utilities_renames is defined and (item in utilities_renames) else item) ] }}
   loop: "{{ utilities_base }}"
   when: utilities_exclude is not defined or item not in utilities_exclude
+  tags: utilities
 
-- name: Utilities | Extend with distribution specific packages (Debian family)
-  set_fact:
+- name: "Utilities | Extend with distribution specific packages (Debian family)"
+  ansible.builtin.set_fact:
     utilities_packages: "{{ utilities_packages + (utilities_distribution_debian | default([])) }}"
   when: ansible_facts['os_family'] == 'Debian'
+  tags: utilities
 
-- name: Utilities | Ensure packages are installed (Debian family)
-  apt:
+- name: "Utilities | Ensure packages are installed (Debian family)"
+  ansible.builtin.apt:
     name: "{{ utilities_packages | difference(utilities_distribution_exclude | default([])) }}"
     state: present
-    update_cache: yes
+    update_cache: true
   when: ansible_facts['os_family'] == 'Debian'
+  tags: utilities
 
-- name: Utilities | Make sure the list of addtitional tools and utilities are installed
-  apt:
-    pkg: "{{utilities_extras}}"
+- name: "Utilities | Install extras"
+  ansible.builtin.apt:
+    name: "{{ utilities_extras }}"
+    state: present
   when: utilities_extras | length > 0
+  tags: utilities
